@@ -4,8 +4,16 @@ const PORT = process.env.PORT || 8080
 
 var http = require('http');
 http.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.write(JSON.stringify(tierList));
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  content = ""
+  for (tier in tierList) {
+    content += `<h1>${tier} Tier</h1>`
+    for (champ in tierList[tier]) {
+      champData = tierList[tier][champ]
+      content += `<p><img src='${champData.imgUrl}' /> <a href='${champData.link}'>${champData.name}</a>`
+    }
+  }
+  res.write(content);
   res.end();
 }).listen(PORT, "0.0.0.0", function() {
   console.log("Listening on Port" + PORT)
