@@ -6,34 +6,23 @@ const URL = BASE_URL + "/aram/tierlist";
 
 let tierList = {}
 
-class ChampionData {
-  constructor(name, link, imgUrl, description) {
-    this.name = name;
-    this.link = link;
-    this.imgUrl = imgUrl;
-    this.description = description;
-  }
-}
-
 rp(URL).then(function (html) {
   raw_champ = $('.champion-grid-item', html);
-  console.log();
   for (let i = 0; i < raw_champ.length; i++) {
-    let champ = new ChampionData();
+    let champ = {};
     
     champ.name = $('div > div', raw_champ[i].attribs["title"]).text();
     champ.link = BASE_URL + raw_champ[i].children[0].attribs["href"];
     champ.imgUrl = raw_champ[i].children[0].children[0].attribs["src"];
     champ.description = raw_champ[i].children[0].children[0].attribs["alt"];
+    champ.tier = $('.tier', raw_champ[i].attribs["title"]).text();
 
-    tier = $('.tier', raw_champ[i].attribs["title"]).text();
-
-    if (tierList[tier] == null) {
-      tierList[tier] = [];
+    if (tierList[champ.tier] == null) {
+      tierList[champ.tier] = [];
     }
-    tierList[tier].push(champ);
+    tierList[champ.tier].push(champ);
   }
   console.log(tierList);
 }).catch(function (err) {
-  //handle error
+  console.log(err)
 });
