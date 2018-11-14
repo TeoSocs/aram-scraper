@@ -6,7 +6,7 @@ http.createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.write(JSON.stringify(tierList));
   res.end();
-}).listen(443);
+}).listen(42690);
 
 const BASE_URL = "https://www.metasrc.com";
 const URL = BASE_URL + "/aram/tierlist";
