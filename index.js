@@ -6,7 +6,9 @@ http.createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.write(JSON.stringify(tierList));
   res.end();
-}).listen(process.env.PORT || 8080);
+}).listen(process.env.PORT || 8080, "0.0.0.0", function() {
+  console.log("Listening on Port" + (process.env.PORT || 8080))
+});
 
 const BASE_URL = "https://www.metasrc.com";
 const URL = BASE_URL + "/aram/tierlist";
