@@ -50,4 +50,4 @@ function fetch() {
 
 fetch()
 
-setInterval(fetch, 30000)
+setInterval(fetch, 36000000)
