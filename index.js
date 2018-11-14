@@ -1,13 +1,14 @@
 const rp = require("request-promise");
 const $ = require("cheerio");
+const PORT = process.env.PORT || 8080
 
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.write(JSON.stringify(tierList));
   res.end();
-}).listen(process.env.PORT || 8080, "0.0.0.0", function() {
-  console.log("Listening on Port" + (process.env.PORT || 8080))
+}).listen(PORT, "0.0.0.0", function() {
+  console.log("Listening on Port" + PORT)
 });
 
 const BASE_URL = "https://www.metasrc.com";
