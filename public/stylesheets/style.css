@@ -1,7 +1,16 @@
 a {
-  color: inherit
+  color: inherit;
 }
 
-.card-body {
-  padding: 1em,
+.champ-card {
+  width: 8.3em;
+}
+
+.champ-card-body {
+  padding: .3em;
+}
+
+.champ-card-title {
+  text-align: center; 
+  margin-bottom: 0px;
 }

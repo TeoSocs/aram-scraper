@@ -3,16 +3,8 @@ let tierList = require('../model/tierList')
 const render = require('../helpers/render')
 
 route = function(req, res) {
-  // content = ""
-  // for (tier in tierList.data) {
-  //   content += `<h1>${tier} Tier</h1>`
-  //   for (champ in tierList.data[tier]) {
-  //     champData = tierList.data[tier][champ]
-  //     content += `<p><img src='${champData.imgUrl}' /> <a href='${champData.link}'>${champData.name}</a>`
-  //   }
-  // }
   let values = {
-    cssFile: "../public/stylesheets/style.css",
+    cssFile: "../stylesheets/style.css",
     body: ""
   }
   for (tier in tierList.data) {

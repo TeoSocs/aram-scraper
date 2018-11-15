@@ -9,6 +9,8 @@ let scraper = new Scraper();
 
 scraper.init();
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', aramTierList);
 
 app.listen(PORT, function () {
