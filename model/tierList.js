@@ -13,6 +13,6 @@ class TierList {
   }
 }
 
-tierList = new TierList()
+let tierList = new TierList()
 
 module.exports = tierList
